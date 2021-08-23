@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ToDoTask({ task, idx, handleDelete }) {
+  const [state, setState] = useState(false);
   function handleClick() {
-    const input = document.querySelector(`#checked${idx}`);
-    const icon = document.querySelector(`#color${idx}`);
-    const button = document.querySelector(`#button${idx}`);
-    input.classList.add("content-checked");
-    icon.classList.add("checked");
-    button.classList.add("disabled");
+    setState(true);
   }
+  console.log(state);
   return (
     <div className="taskContainer">
       <div className="toDoTask" onClick={handleClick}>
-        <span className="checked-item " id={`color${idx}`}>
+        <span className={`checked-item ${state ? "checked" : null}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="35"
@@ -24,13 +21,12 @@ export default function ToDoTask({ task, idx, handleDelete }) {
             <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
           </svg>
         </span>
-        <span className="content font" id={`checked${idx}`}>
+        <span className={`content font ${state ? "content-checked" : null}`}>
           {task}
         </span>
       </div>
       <button
-        className="btn btn-danger delete-button"
-        id={`button${idx}`}
+        className={`btn btn-danger delete-button ${state ? "disabled" : null}`}
         data-bs-toggle="modal"
         data-bs-target={`#deleteModal${idx}`}
       >
