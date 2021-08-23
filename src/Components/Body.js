@@ -23,10 +23,6 @@ export default function Body() {
     setToDoList([...toDoList]);
   };
 
-  function handleClassClick(idx) {
-    console.log(idx);
-  }
-
   useEffect(() => {}, [toDoList]);
 
   return (
@@ -56,7 +52,6 @@ export default function Body() {
               key={idx}
               idx={idx}
               handleDelete={handleDeleteClick}
-              handleClass={handleClassClick}
             />
           ))}
         </div>

@@ -9,7 +9,6 @@ export default function ToDoTask({ task, idx, handleDelete }) {
     icon.classList.add("checked");
     button.classList.add("disabled");
   }
-
   return (
     <div className="taskContainer">
       <div className="toDoTask" onClick={handleClick}>
@@ -33,14 +32,14 @@ export default function ToDoTask({ task, idx, handleDelete }) {
         className="btn btn-danger delete-button"
         id={`button${idx}`}
         data-bs-toggle="modal"
-        data-bs-target="#deleteModal"
+        data-bs-target={`#deleteModal${idx}`}
       >
         X
       </button>
 
       <div
         className="modal fade"
-        id="deleteModal"
+        id={`deleteModal${idx}`}
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
