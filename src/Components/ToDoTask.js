@@ -5,7 +5,7 @@ export default function ToDoTask({ task, idx, handleDelete }) {
   function handleClick() {
     setState(true);
   }
-  console.log(state);
+
   return (
     <div className="taskContainer">
       <div className="toDoTask" onClick={handleClick}>

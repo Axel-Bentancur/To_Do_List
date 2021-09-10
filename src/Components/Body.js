@@ -11,6 +11,12 @@ export default function Body() {
     setToDo(value);
   }
 
+  function handleKeyUp(e) {
+    if (e.keyCode === 13) {
+      handleOnClick();
+    }
+  }
+
   function handleOnClick() {
     if (toDo !== "") {
       setToDoList([...toDoList, toDo]);
@@ -40,8 +46,10 @@ export default function Body() {
             className="toDoInput font"
             value={toDo}
             onChange={handleOnChange}
+            onKeyUp={handleKeyUp}
+            autoComplete="off"
           ></input>
-          <button className="addButton" onClick={handleOnClick}>
+          <button type="submit" className="addButton" onClick={handleOnClick}>
             ADD
           </button>
         </div>
